@@ -1,13 +1,15 @@
 import Counter from './Counter'
+import Todo from './Todo'
 import './App.css';
 
-function App() { 
+function App() {
   return (
     <div className="App">
-      <h1>GOO</h1>
-      <Counter></Counter>
+      <Counter />
+      <h1>To-Do List</h1> 
+      <Todo />
     </div>
-  ); 
+  );
 }
 
 export default App;

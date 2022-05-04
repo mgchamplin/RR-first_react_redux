@@ -15,6 +15,8 @@ export const counterSlice = createSlice({
             return { value: state.value - 1 }
         },
         incrementByAmount: (state, action) => {
+            console.log("CTRis " + state.value + " " + action.payload)
+
             return { value: state.value + action.payload }
         }
     }
