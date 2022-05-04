@@ -14,16 +14,21 @@ export const todoSlice = createSlice({
             return { items: [...state.items, action.payload]}
         },
         removeOne: (state, action) => {
-            console.log("Action = " + action)
+            console.log("removeOne payload = " + action.payload + " items=" + state.items)
+
             let array = [...state.items]
             let index = action.payload
+            console.log("index = " + index)
             if(index !== -1) {
+                console.log(array)
                 array.splice(index, 1)
+                console.log(array)
+
                 return { items: array }
             }
         },
         clearTodo: () => {
-            return { items: [] }  // return { todo: [] }
+            return { items: ["Empty List"] }
         }
     }
 })

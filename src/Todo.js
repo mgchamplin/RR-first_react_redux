@@ -7,7 +7,11 @@ function Todo() {
     const dispatch = useDispatch()
     const [input, setInput] = useState('')
 
-    const renderItems = items.map((item, index) => <li key={index} onClick={() => dispatch(removeOne(index))}>{item}</li>)
+    const renderItems = items.map((item, index) => 
+        <li     style={{marginLeft:"15em", textAlign:"left"}} 
+                key={index} 
+                onClick={() => dispatch(removeOne(index))}>
+                    {item}</li>)
 
     const submitForm = (e) => {
         e.preventDefault()
@@ -18,9 +22,11 @@ function Todo() {
         <div>
             <form onSubmit={(e) => submitForm(e)}>
                 <input type="text" onChange={(e) => setInput(e.target.value)} />
-                <button type="submit">Submit Item</button>
+                <button type="submit">Submit To-Do Item</button>
             </form>
-            <button onClick={() => dispatch(clearTodo())}>Clear List</button>
+            <button onClick={() => dispatch(clearTodo())}>Clear To-Do List</button>
+            <br></br><br></br>
+            <hr></hr>
             <ul>
                 {renderItems}
             </ul>
