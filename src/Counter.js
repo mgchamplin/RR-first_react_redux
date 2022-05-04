@@ -5,14 +5,14 @@ import { decrement, increment, incrementByAmount } from './features/counterSlice
 function Counter() {
     const count = useSelector((state) => state.counter.value)
     const dispatch = useDispatch()
-    const [input, setInput] = useState(0)
+    const [offsetInput, setOffset] = useState(0)
 
-    const byAmount = (e) => {
+    const addAmount = (e) => {
         e.preventDefault()
-        dispatch(incrementByAmount(Number(input)))
+        dispatch(incrementByAmount(Number(offsetInput)))
     }
 
-    console.log("COUNTER input " + input + " count " + count)
+    console.log("COUNTER input " + offsetInput + " count " + count)
 
     return (
         <div>
@@ -27,8 +27,8 @@ function Counter() {
                 onClick={() => dispatch(decrement())}>
                 Decrement
             </button>
-            <form onSubmit={(e) => byAmount(e)}>
-                <input type="number" onChange={(e) => setInput(e.target.value)} />
+            <form onSubmit={(e) => addAmount(e)}>
+                <input type="number" onChange={(e) => setOffset(e.target.value)} />
                 <button type="submit">Add Offset</button>
             </form>
         </div>
